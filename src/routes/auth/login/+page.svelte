@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
+  import { user } from "$lib/store/user.client";
+
   async function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
 
@@ -20,7 +23,14 @@
       alert("Failed to login");
       return;
     }
-    alert("Login successful");
+
+    const data = await resp.json();
+    user.set({
+      name: data.name,
+      email: data.email,
+    });
+
+    goto("/secure");
   }
 </script>
 
