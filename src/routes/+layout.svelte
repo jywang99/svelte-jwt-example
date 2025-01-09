@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>Review Planner</title>
+  <title>Svelte JWT</title>
 </svelte:head>
 
 {#if navigating.type}

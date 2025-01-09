@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { REGIST_DONE_PARAM } from "../login/util";
 
   async function handleSubmit(event: SubmitEvent) {
     // prevent default behavior of form submission (page reload with query string params)
@@ -37,7 +38,7 @@
       return;
     }
 
-    goto('/auth/login');
+    goto(`/auth/login?${REGIST_DONE_PARAM}`);
   }
 </script>
 

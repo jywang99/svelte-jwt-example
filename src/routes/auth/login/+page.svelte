@@ -1,6 +1,10 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { page } from "$app/state";
   import { user } from "$lib/store/user.client";
+  import { REGIST_DONE_PARAM } from "./util";
+
+  const justRegistered = page.url.searchParams.has(REGIST_DONE_PARAM);
 
   async function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
@@ -36,6 +40,10 @@
 
 <h1>Login</h1>
 
+{#if justRegistered}
+  <p class="regist">Registration complete. Please login.</p>
+{/if}
+
 <form on:submit={handleSubmit}>
   <label for="email">Email</label>
   <input type="email" id="email" name="email" required />
@@ -48,4 +56,10 @@
   <button type="submit">Login</button>
   <a href="/auth/regist">Sign up</a>
 </form>
+
+<style>
+  .regist {
+    color: green;
+  }
+</style>
 

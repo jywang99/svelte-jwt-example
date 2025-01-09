@@ -8,3 +8,5 @@ Tech stack:
 3. Libraries: **jsonwebtoken**, **bcrypt**
 3. Database: **PostgreSQL**
 
+The demo website is hosted [here](https://svelte-jwt-example.junyi.me/).
+
